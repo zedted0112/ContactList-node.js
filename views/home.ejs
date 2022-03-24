@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%= title%>
+    </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/css/home.css">
+
+</head>
+
+<body>
+
+    <h1> <i class="fas fa-address-book"></i> Contact List</h1>
+<div class="container">
+    <ul>
+        <% for(let i of    contact_list
+        ){ %>
+
+            <li>
+<div class="info-box">
+    
+    <p>
+       <i class="fas fa-user" >   </i> <%=i.name%>
+    </p>
+    <p>
+       </i> <%=i.phone%> <a href="/delete-contact/?phone=<%=i.phone%>&name=<%=i.name%>&id=<%=i._id%>"><i class="fas fa-trash"></i></a>
+    </p>
+</div>
+            </li>
+
+
+
+            <%}%>
+
+
+    </ul>
+
+    <form action="/create-contact" method="post">
+        <input type="text" placeholder="Enter your name" name="name" required>
+        <input type="number" placeholder="Enter your number" name="phone" required>
+        <button type="submit"> <i class="fas fa-circle-plus"></i></button>
+    </form>
+</div>
+    <script type="text/javaScript" src="/js/home.js"></script>
+
+</body>
+
+</html>
